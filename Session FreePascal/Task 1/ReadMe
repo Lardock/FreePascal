@@ -1,0 +1,5 @@
+Execute using inline assembler. 
+Generation of input data and output can be implemented by means of the Pascal language.
+
+Set 0 in bit 5 of all even-indexed bytes in the array, and 1 in bit 4 of odd array bytes.
+Determine the sum of the elements of the resulting array.
