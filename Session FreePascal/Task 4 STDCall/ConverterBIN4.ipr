@@ -1,0 +1,41 @@
+program ConverterBIN4;
+procedure  ToBin32(W:dword; Res:PChar);assembler;STDCall;
+{$ASMMODE intel}
+asm
+PUSH EAX
+PUSH EBX
+PUSH ECX
+PUSH EDX
+MOV EAX,[EBP+8]
+MOV ECX,32
+MOV EDX,[EBP+12]
+MOV BL,98
+MOV [EDX+ECX],BL
+XOR EBX,EBX
+MOV BL,48
+MOV [EDX+ECX]+1,BL
+XOR EBX,EBX
+@Nach:
+ MOV BL,48
+ TEST EAX,1
+ JZ @1
+ INC BL
+ @1:
+   MOV [EDX+ECX-1],BL
+   SHR EAX,1
+   LOOP @Nach
+PUSH EDX
+PUSH ECX
+PUSH EBX
+PUSH EAX
+end;
+var Ch:array[1..34] of Char;
+x:dword;
+begin
+  writeln('Vvedite Chislo ');
+  readln(x);
+  ToBin32(x,@Ch);
+  writeln(Ch);
+  readln();
+end.
+
