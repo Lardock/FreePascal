@@ -1,0 +1,5 @@
+Access to the passed parameters of a subroutine can be implemented only through registers or the stack, depending on the convention.
+
+1)A four-byte number is given. Write a subroutine in Assembly language to translate a number into a binary number system. 
+  The string is of type PChar and ends with the postfix "b". 
+  Use the stdcall convention.
